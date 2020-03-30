@@ -1,0 +1,20 @@
+image:
+  tag: latest
+  repository: tpark.acr.io
+serviceName: "storage-service"
+
+service:
+    dns: storage.timtestdomain.io
+    port: 80
+configMap:
+    PORT: "80"
+    SERVICE_NAME: storage-service
+replicas: 8
+port: 80
+resources:
+    requests:
+        cpu: "250m"
+        memory: "256Mi"
+    limits:
+        cpu: "1000m"
+        memory: "4096Mi"

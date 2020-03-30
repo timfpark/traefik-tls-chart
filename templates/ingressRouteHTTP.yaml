@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.serviceName }}-http
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: 'Host(`{{ .Values.service.dns }}`)'
+      services:
+        - name: {{ .Values.serviceName }}
+          port: 80
